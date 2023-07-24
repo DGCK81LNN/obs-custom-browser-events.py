@@ -1,0 +1,29 @@
+name: Release
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        required: true
+        type: string
+      prerelease:
+        required: true
+        type: boolean
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Publish Release
+        uses: softprops/action-gh-release@v0.1.14
+        with:
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+          tag_name: ${{ github.event.inputs.tag || github.ref }}
+          prerelease: ${{ github.event.inputs.prerelease }}
+          draft: ${{ github.event_name != 'workflow_dispatch' }}
+          files: |
+            custom-browser-events.py
