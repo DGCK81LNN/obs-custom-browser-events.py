@@ -1,6 +1,6 @@
 # Custom JavaScript events for OBS Studio browser sources
 # Copyright (C) 2023  DGCK81LNN
-# Documentation can be found at https://github.com/DGCK81LNN/obs_custom-browser-events.py
+# Documentation can be found at https://github.com/DGCK81LNN/obs-custom-browser-events.py
 #
 # This program is free software: you can redistribute and/or modify it
 # under the terms of the GNU General Public License version 3.
